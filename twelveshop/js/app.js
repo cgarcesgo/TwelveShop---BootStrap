@@ -4,7 +4,7 @@ const $formControl = $formGroup.find('.form-control')
 
 $form.submit((ev) => {
   ev.preventDefault()
-  
+
   const error = Math.random() > 0.5
   $formGroup.removeClass().addClass('form-group')
   $formControl.removeClass().addClass('form-control')
@@ -23,6 +23,11 @@ $form.submit((ev) => {
 
 function mostrarModal() {
   console.log()
+
+  if(localStorage.noMostrarModal == undefined){
+    localStorage.noMostrarModal = false
+  }
+  
   if (!JSON.parse(localStorage.noMostrarModal)) {
     $('#modalOferta').modal()
   }
